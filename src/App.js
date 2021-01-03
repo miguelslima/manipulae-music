@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter, Switch } from "react-router-dom";
 
 import { ThemeProvider, DefaultTheme } from "styled-components";
@@ -11,6 +12,7 @@ import dark from "./styles/themes/dark";
 
 import Routes from "./routes";
 import Header from "./components/Header";
+import store from "./store";
 
 function App() {
   const [theme, setTheme] = usePersistedState("theme", dark);
@@ -20,15 +22,17 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <GlobalStyle />
-        <Header toggleTheme={toggleTheme} />
-        <Switch>
-          <Routes />
-        </Switch>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <Header toggleTheme={toggleTheme} />
+          <Switch>
+            <Routes />
+          </Switch>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

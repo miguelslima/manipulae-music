@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex: 1;
+  flex-direction: column;
 
   justify-content: center;
   align-items: center;
@@ -10,6 +11,7 @@ export const Container = styled.div`
 
 export const SearchContainer = styled.div`
   display: flex;
+  flex-direction: row;
   margin-top: 20px;
   justify-content: center;
   align-items: center;
