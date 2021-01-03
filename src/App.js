@@ -13,7 +13,7 @@ import Routes from "./routes";
 import Header from "./components/Header";
 
 function App() {
-  const [theme, setTheme] = usePersistedState("theme", light);
+  const [theme, setTheme] = usePersistedState("theme", dark);
 
   const toggleTheme = () => {
     setTheme(theme.title === "light" ? dark : light);
