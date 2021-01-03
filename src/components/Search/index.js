@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, SearchContainer, Input, Button } from "./styles";
 import api from "../../services/api";
+import { searchAlbumApi } from "../../store/modules/album/actions";
 
 export default function Search() {
-  const [album, setAlbum] = useState([]);
+  const dispatch = useDispatch();
+  const [albums, setAlbums] = useState([]);
 
-  useEffect(() => {
-    async function searchMusic() {
-      const data = await api.get("/artist/13/top?limit=10");
+  useEffect(async () => {
+    const data = await api.get("/artist/13/top?limit=10");
 
-      console.log(data.data);
-      setAlbum(data.data);
-      return;
-    }
-    searchMusic();
+    console.log(data.data.data);
+    setAlbums(data.data.data);
+    return;
   }, []);
 
-  // const album = useSelector((state) => state);
+  const handleSearchAlbumApi = useCallback(
+    (album) => {
+      dispatch(searchAlbumApi(album));
+      console.log("clicou em " + album.title);
+    },
+    [dispatch]
+  );
 
-  // console.log(album);
+  const state = useSelector(state => state);
+
+  console.log(state);
 
   return (
     <Container>
@@ -27,12 +34,14 @@ export default function Search() {
         <Input placeholder="Pesquise por artista, música ou álbum" />
         <Button>Pesquisar</Button>
       </SearchContainer>
-      {album.data?.map((a) => (
-        <div key={a.id}>
-          <h1>{a.title}</h1>
-          <span>{a.title_short}</span>
+      {albums.map((album) => (
+        <div key={album.id}>
+          <h1>{album.title}</h1>
+          <span>{album.title_short}</span>
 
-          <button type="button">Favoritar</button>
+          <button type="button" onClick={() => handleSearchAlbumApi(album)}>
+            Favoritar
+          </button>
         </div>
       ))}
     </Container>
