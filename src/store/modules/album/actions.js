@@ -3,6 +3,7 @@ export function searchAlbumApi(album) {
     type: "SEARCH_ALBUM_API",
     payload: {
       album,
+      favorite: false,
     },
   };
 }

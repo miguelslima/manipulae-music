@@ -7,24 +7,25 @@ import { searchAlbumApi } from "../../store/modules/album/actions";
 export default function Search() {
   const dispatch = useDispatch();
   const [albums, setAlbums] = useState([]);
+  const [musicTops, setMusicTops] = useState([])
 
   useEffect(async () => {
-    const data = await api.get("/artist/13/top?limit=10");
+    const data = await api.get("/chart/0");
 
-    console.log(data.data.data);
-    setAlbums(data.data.data);
+    console.log(data.data);
+    // setAlbums(data.data.data);
     return;
   }, []);
 
   const handleSearchAlbumApi = useCallback(
     (album) => {
       dispatch(searchAlbumApi(album));
-      console.log("clicou em " + album.title);
+      // console.log("clicou em " + album.title);
     },
     [dispatch]
   );
 
-  const state = useSelector(state => state);
+  const state = useSelector((state) => state);
 
   console.log(state);
 
@@ -34,16 +35,7 @@ export default function Search() {
         <Input placeholder="Pesquise por artista, música ou álbum" />
         <Button>Pesquisar</Button>
       </SearchContainer>
-      {albums.map((album) => (
-        <div key={album.id}>
-          <h1>{album.title}</h1>
-          <span>{album.title_short}</span>
-
-          <button type="button" onClick={() => handleSearchAlbumApi(album)}>
-            Favoritar
-          </button>
-        </div>
-      ))}
+      
     </Container>
   );
 }
