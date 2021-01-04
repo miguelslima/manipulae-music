@@ -14,6 +14,7 @@ import dark from "./styles/themes/dark";
 import Routes from "./routes";
 import Header from "./components/Header";
 import store from "./store";
+import Footer from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = usePersistedState("theme", dark);
@@ -31,6 +32,7 @@ function App() {
           <Switch>
             <Routes />
           </Switch>
+          <Footer />
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin: 20px;
-
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
 `;
 
 export const ContainerTracks = styled.div`
-  margin: 15px;
+  margin: 5px 10px;
   padding: 0px 20px 0 0px;
   background: ${(props) => props.theme.colors.primary};
   border-radius: 10px;
@@ -51,7 +51,7 @@ export const Title = styled.h1`
 `;
 
 export const ContainerAlbum = styled.div`
-  margin: 10px 10px;
+  margin: 0px 10px;
 
   img {
     border-radius: 15px;
@@ -70,7 +70,7 @@ export const ContainerAlbum = styled.div`
 `;
 
 export const ContainerArtist = styled.div`
-  margin: 10px 20px;
+  margin: 0px 10px;
 
   img {
     border-radius: 600px;
