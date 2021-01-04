@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.footer`
   height: 60px;
+  width: 100%;
   background: ${(props) => props.theme.colors.primary};
   color: #95d7d3;
   font-size: 30px;

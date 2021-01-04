@@ -16,4 +16,4 @@ function* checkFavorited(action) {
   // console.log(favorite);
 }
 
-export default all([takeLatest("SEARCH_ALBUM_API", checkFavorited)]);
+export default all([takeLatest("FAVORITE_TRACK_API", checkFavorited)]);

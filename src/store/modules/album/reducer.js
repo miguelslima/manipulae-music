@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 const album = (state = INITIAL_STATE, action) => {
   return produce(state, (draft) => {
     switch (action.type) {
-      case "SEARCH_ALBUM_API": {
+      case "FAVORITE_TRACK_API": {
         const { album } = action.payload;
 
         const albumFavoriteIndex = draft.data.findIndex(

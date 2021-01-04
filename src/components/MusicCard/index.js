@@ -5,12 +5,10 @@ import convertDurationInMinute from "../../utils/convertDurationInMinute";
 
 import { SiDeezer } from "react-icons/si";
 import Slider from "react-slick";
-import { searchAlbumApi } from "../../store/modules/album/actions";
 
 import {
   Container,
   Title,
-  ContainerScroll,
   ContainerTracks,
   TrackArtistName,
   TrackTitle,
@@ -18,21 +16,10 @@ import {
   ContainerArtist,
 } from "./styles";
 import PlayMusicPreview from "../PlayMusicPreview";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import FavoritedButton from "../FavoritedButton";
 
 export default function MusicCard() {
-  const dispatch = useDispatch();
-
-  const handleFavoritedTrack = useCallback(
-    (album, favorited) => {
-      dispatch(searchAlbumApi(album, favorited));
-      setFavorited(!favorited);
-      // console.log("clicou em " + album.title);
-    },
-    [dispatch]
-  );
-
   const [tracksTops, setTracksTops] = useState([]);
   const [albumsTops, setAlbumsTops] = useState([]);
   const [artistsTops, setArtistsTop] = useState([]);
@@ -48,7 +35,7 @@ export default function MusicCard() {
           ...style,
           display: "block",
           background: "#aaa",
-          borderRadius: 20,
+          borderRadius: 200,
         }}
         onClick={onClick}
       />
@@ -80,8 +67,6 @@ export default function MusicCard() {
     slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
   };
 
   useEffect(async () => {
@@ -123,7 +108,7 @@ export default function MusicCard() {
             <SiDeezer size={20} fill="#95d7d3" />
           </a>
 
-          <FavoritedButton />
+          <FavoritedButton favoriteTrack={track} />
         </ContainerTracks>
       ))}
 

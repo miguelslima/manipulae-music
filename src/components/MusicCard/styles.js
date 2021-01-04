@@ -40,11 +40,6 @@ export const TrackTitle = styled.p`
   white-space: nowrap;
 `;
 
-export const ContainerScroll = styled.div`
-  display: flex;
-  overflow-x: scroll;
-`;
-
 export const Title = styled.h1`
   margin: 10px 20px;
   text-decoration: underline;

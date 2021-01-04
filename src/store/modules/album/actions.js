@@ -1,6 +1,6 @@
-export function searchAlbumApi(album, favorited) {
+export function favoriteTrackApi(album, favorited) {
   return {
-    type: "SEARCH_ALBUM_API",
+    type: "FAVORITE_TRACK_API",
     payload: {
       album,
       favorited,
