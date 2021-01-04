@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import api from "../../services/api";
 import fetchJsonp from "fetch-jsonp";
 import convertDurationInMinute from "../../utils/convertDurationInMinute";
-import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
+
 import { SiDeezer } from "react-icons/si";
 import Slider from "react-slick";
 import { searchAlbumApi } from "../../store/modules/album/actions";
@@ -19,6 +19,7 @@ import {
 } from "./styles";
 import PlayMusicPreview from "../PlayMusicPreview";
 import { useDispatch, useSelector } from "react-redux";
+import FavoritedButton from "../FavoritedButton";
 
 export default function MusicCard() {
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ export default function MusicCard() {
   const settings = {
     className: "slider variable-width",
     focusOnSelect: true,
-    dots: true,
+    dots: false,
     infinite: false,
     centerMode: false,
     slidesToShow: 1,
@@ -122,13 +123,7 @@ export default function MusicCard() {
             <SiDeezer size={20} fill="#95d7d3" />
           </a>
 
-          <button onClick={() => handleFavoritedTrack(track, favorited)}>
-            {track.id && favorited ? (
-              <AiOutlineHeart size={20} fill="#95d7d3" />
-            ) : (
-              <AiTwotoneHeart size={20} fill="#95d7d3" />
-            )}
-          </button>
+          <FavoritedButton />
         </ContainerTracks>
       ))}
 
