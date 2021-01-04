@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import api from "../../services/api";
 import fetchJsonp from "fetch-jsonp";
 import convertDurationInMinute from "../../utils/convertDurationInMinute";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 import { SiDeezer } from "react-icons/si";
 import Slider from "react-slick";
+import { searchAlbumApi } from "../../store/modules/album/actions";
 
 import {
   Container,
@@ -17,11 +18,24 @@ import {
   ContainerArtist,
 } from "./styles";
 import PlayMusicPreview from "../PlayMusicPreview";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function MusicCard() {
+  const dispatch = useDispatch();
+
+  const handleFavoritedTrack = useCallback(
+    (album, favorited) => {
+      dispatch(searchAlbumApi(album, favorited));
+      setFavorited(!favorited);
+      // console.log("clicou em " + album.title);
+    },
+    [dispatch]
+  );
+
   const [tracksTops, setTracksTops] = useState([]);
   const [albumsTops, setAlbumsTops] = useState([]);
   const [artistsTops, setArtistsTop] = useState([]);
+  const [favorited, setFavorited] = useState(true);
   const [index, setIndex] = useState(0);
 
   function SampleNextArrow(props) {
@@ -77,14 +91,21 @@ export default function MusicCard() {
     ).json();
     const data = await resp;
 
-    console.log(data);
-
     setTracksTops(data.tracks);
     setAlbumsTops(data.albums);
     setArtistsTop(data.artists);
 
     return;
   }, []);
+
+  const state = useSelector((state) => state);
+
+  console.log(state);
+
+  // const favorite = state.album?.data[0].favorited
+
+  // console.log(favorite)
+  // console.log(state)
 
   return (
     <Container>
@@ -101,8 +122,13 @@ export default function MusicCard() {
             <SiDeezer size={20} fill="#95d7d3" />
           </a>
 
-          <AiOutlineHeart size={20} fill="#95d7d3" />
-          {/* <AiTwotoneHeart size={20} fill="#95d7d3" /> */}
+          <button onClick={() => handleFavoritedTrack(track, favorited)}>
+            {track.id && favorited ? (
+              <AiOutlineHeart size={20} fill="#95d7d3" />
+            ) : (
+              <AiTwotoneHeart size={20} fill="#95d7d3" />
+            )}
+          </button>
         </ContainerTracks>
       ))}
 

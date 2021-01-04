@@ -1,9 +1,9 @@
-export function searchAlbumApi(album) {
+export function searchAlbumApi(album, favorited) {
   return {
     type: "SEARCH_ALBUM_API",
     payload: {
       album,
-      favorite: false,
+      favorited,
     },
   };
 }

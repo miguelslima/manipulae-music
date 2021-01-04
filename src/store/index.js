@@ -1,7 +1,16 @@
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import album from "./modules/album/reducer";
-import rootreducer from "./modules/rootreducer";
+import createSagaMiddleware from "redux-saga";
 
-const store = createStore(rootreducer);
+import rootreducer from "./modules/rootreducer";
+import rootSaga from "./modules/rootSaga";
+
+const sagaMiddleware = createSagaMiddleware();
+
+const middlewares = [sagaMiddleware];
+
+const store = createStore(rootreducer, applyMiddleware(...middlewares));
+
+sagaMiddleware.run(rootSaga);
 
 export default store;

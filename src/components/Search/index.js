@@ -18,7 +18,7 @@ export default function Search() {
 
   const state = useSelector((state) => state);
 
-  console.log(state);
+  // console.log(state);
 
   return (
     <Container>
