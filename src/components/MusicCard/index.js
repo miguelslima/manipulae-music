@@ -3,6 +3,8 @@ import api from "../../services/api";
 import fetchJsonp from "fetch-jsonp";
 import convertDurationInMinute from "../../utils/convertDurationInMinute";
 
+import Slider from "react-slick";
+
 import {
   Container,
   Title,
@@ -19,6 +21,17 @@ export default function MusicCard() {
   const [albumsTops, setAlbumsTops] = useState([]);
   const [artistsTops, setArtistsTop] = useState([]);
   const [index, setIndex] = useState(0);
+
+  const settings = {
+    className: "slider variable-width",
+    focusOnSelect: true,
+    dots: true,
+    infinite: false,
+    centerMode: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+  };
 
   useEffect(async () => {
     const resp = await (
@@ -53,7 +66,7 @@ export default function MusicCard() {
 
       <Title>Albums</Title>
 
-      <ContainerScroll>
+      <Slider {...settings}>
         {albumsTops.data?.map((album) => (
           <ContainerAlbum>
             <img src={album.cover_medium} />
@@ -61,18 +74,18 @@ export default function MusicCard() {
             <p>{album.artist.name}</p>
           </ContainerAlbum>
         ))}
-      </ContainerScroll>
+      </Slider>
 
-      <Title>Artists</Title>
+      <Title style={{ marginTop: 30 }}>Artists</Title>
 
-      <ContainerScroll>
+      <Slider {...settings}>
         {artistsTops.data?.map((artist) => (
           <ContainerArtist>
             <img src={artist.picture_medium} />
             <p>{artist.name}</p>
           </ContainerArtist>
         ))}
-      </ContainerScroll>
+      </Slider>
     </Container>
   );
 }

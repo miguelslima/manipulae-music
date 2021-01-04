@@ -6,16 +6,7 @@ import { searchAlbumApi } from "../../store/modules/album/actions";
 
 export default function Search() {
   const dispatch = useDispatch();
-  const [albums, setAlbums] = useState([]);
-  const [musicTops, setMusicTops] = useState([])
 
-  useEffect(async () => {
-    const data = await api.get("/chart/0");
-
-    console.log(data.data);
-    // setAlbums(data.data.data);
-    return;
-  }, []);
 
   const handleSearchAlbumApi = useCallback(
     (album) => {
@@ -35,7 +26,8 @@ export default function Search() {
         <Input placeholder="Pesquise por artista, música ou álbum" />
         <Button>Pesquisar</Button>
       </SearchContainer>
-      
+
+
     </Container>
   );
 }

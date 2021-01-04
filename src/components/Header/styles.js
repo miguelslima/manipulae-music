@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+
   height: 80px;
   background: ${(props) => props.theme.colors.primary};
   color: #95d7d3;
@@ -19,5 +24,5 @@ export const LogoContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  color: #95d7d3
+  color: #95d7d3;
 `;

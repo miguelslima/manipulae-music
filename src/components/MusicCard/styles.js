@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-bottom: 20px;
+  margin: 20px;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ContainerTracks = styled.div`
   margin: 15px;
   padding: 0px 20px 0 0px;
-
-  background-color: #ddd;
+  background: ${(props) => props.theme.colors.primary};
   border-radius: 10px;
 
   display: flex;
@@ -49,10 +51,21 @@ export const Title = styled.h1`
 `;
 
 export const ContainerAlbum = styled.div`
-  margin: 10px 20px;
+  margin: 10px 10px;
 
   img {
     border-radius: 15px;
+  }
+
+  h3 {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  p {
+    color: #aaa;
   }
 `;
 

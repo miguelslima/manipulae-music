@@ -7,6 +7,8 @@ export const Container = styled.div`
 
   justify-content: center;
   align-items: center;
+
+  margin-top: 90px;
 `;
 
 export const SearchContainer = styled.div`
@@ -18,7 +20,7 @@ export const SearchContainer = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 300px;
+  width: 400px;
   height: 30px;
 
   padding: 20px;
@@ -26,6 +28,7 @@ export const Input = styled.input`
   border: 1px solid #ddd;
 
   border-radius: 10px;
+  font-size: 20px;
 `;
 
 export const Button = styled.button`
