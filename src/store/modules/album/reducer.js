@@ -15,7 +15,6 @@ const album = (state = INITIAL_STATE, action) => {
         );
 
         if (albumFavoriteIndex >= 0) {
-          console.log("Item já favoritado e removendo da lista");
           draft.data.splice(albumFavoriteIndex, 1);
           return;
         } else {

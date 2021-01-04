@@ -1,33 +1,28 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { searchResult } from "../../store/modules/search/actions";
 import { Container, SearchContainer, Input, Button } from "./styles";
-import api from "../../services/api";
-import { searchAlbumApi } from "../../store/modules/album/actions";
 
 export default function Search() {
   const dispatch = useDispatch();
+  const [query, setQuery] = useState();
 
-
-  const handleSearchAlbumApi = useCallback(
-    (album) => {
-      dispatch(searchAlbumApi(album));
-      // console.log("clicou em " + album.title);
-    },
-    [dispatch]
-  );
-
-  const state = useSelector((state) => state);
-
-  // console.log(state);
+  function handleSearchApi(e) {
+    e.preventDefault();
+    if (query) {
+      dispatch(searchResult(query));
+    }
+  }
 
   return (
     <Container>
-      <SearchContainer>
-        <Input placeholder="Pesquise por artista, música ou álbum" />
-        <Button>Pesquisar</Button>
+      <SearchContainer onSubmit={(e) => handleSearchApi(e)}>
+        <Input
+          placeholder="Pesquise por artista, música ou álbum"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <Button type="submit">Pesquisar</Button>
       </SearchContainer>
-
-
     </Container>
   );
 }

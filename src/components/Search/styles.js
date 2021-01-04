@@ -11,7 +11,7 @@ export const Container = styled.div`
   margin-top: 90px;
 `;
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
