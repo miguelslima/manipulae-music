@@ -1,17 +1,8 @@
 import { all, select, takeLatest, call } from "redux-saga/effects";
-import fetchJsonp from "fetch-jsonp";
 import api from "../../../services/api";
 
 function* searchApi(action) {
-  console.log(action);
   let response = {};
-
-  // const resp = await (
-  //   await fetchJsonp(
-  //     `https://api.deezer.com/chart?index=${index}&limit=20&output=jsonp`
-  //   )
-  // ).json();
-  // const data = await resp;
 
   const artist = yield call(
     api.get,

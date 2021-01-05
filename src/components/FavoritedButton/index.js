@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { favoriteTrackApi } from "../../store/modules/album/actions";
+import { favoriteTrackApiRequest } from "../../store/modules/album/actions";
 
 import { FavoriteButton } from "./styles";
 
@@ -12,7 +12,7 @@ export default function FavoritedButton({ favoriteTrack }) {
 
   const handleFavoritedTrack = useCallback(
     (album, favorited) => {
-      dispatch(favoriteTrackApi(album, favorited));
+      dispatch(favoriteTrackApiRequest(album, favorited));
       setFavorited(!favorited);
       // console.log("clicou em " + album.title);
     },

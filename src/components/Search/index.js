@@ -5,12 +5,12 @@ import { Container, SearchContainer, Input, Button } from "./styles";
 
 export default function Search() {
   const dispatch = useDispatch();
-  const [query, setQuery] = useState();
+  const [word, setWord] = useState();
 
   function handleSearchApi(e) {
     e.preventDefault();
-    if (query) {
-      dispatch(searchResult(query));
+    if (word) {
+      dispatch(searchResult(word));
     }
   }
 
@@ -19,7 +19,7 @@ export default function Search() {
       <SearchContainer onSubmit={(e) => handleSearchApi(e)}>
         <Input
           placeholder="Pesquise por artista, música ou álbum"
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setWord(e.target.value)}
         />
         <Button type="submit">Pesquisar</Button>
       </SearchContainer>

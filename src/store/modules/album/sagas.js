@@ -1,8 +1,9 @@
-import { all, select, takeLatest } from "redux-saga/effects";
+import { all, put, select, takeLatest } from "redux-saga/effects";
+import { favoriteTrackApiFailure, favoriteTrackApiSuccess } from "./actions";
 
 function* checkFavorited(action) {
+  const { album, favorited } = action.payload;
 
-  console.log(action)
   // const favorited = yield select((state) => {
   //   console.log(
   //     state.album.data.indexOf(
@@ -14,6 +15,12 @@ function* checkFavorited(action) {
   //   // );
   // });
   // console.log(favorite);
+
+  if (favorited === false) {
+    yield put(favoriteTrackApiSuccess(album, favorited));
+  } else {
+    yield put(favoriteTrackApiFailure(album.id));
+  }
 }
 
-export default all([takeLatest("FAVORITE_TRACK_API", checkFavorited)]);
+export default all([takeLatest("FAVORITE_TRACK_API_REQUEST", checkFavorited)]);
