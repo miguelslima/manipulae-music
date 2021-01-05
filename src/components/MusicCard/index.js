@@ -84,15 +84,6 @@ export default function MusicCard() {
     return;
   }, []);
 
-  const state = useSelector((state) => state);
-
-  console.log(state);
-
-  // const favorite = state.album?.data[0].favorited
-
-  // console.log(favorite)
-  // console.log(state)
-
   return (
     <Container>
       <Title>Tracks</Title>
