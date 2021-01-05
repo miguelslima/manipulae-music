@@ -17,6 +17,10 @@ export const Container = styled.div`
   padding: 0 30px;
 
   justify-content: space-between;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const LogoContainer = styled.div`

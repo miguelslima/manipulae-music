@@ -14,14 +14,9 @@ export default function FavoritedButton({ favoriteTrack }) {
     (album, favorited) => {
       dispatch(favoriteTrackApiRequest(album, favorited));
       setFavorited(!favorited);
-      // console.log("clicou em " + album.title);
     },
     [dispatch]
   );
-
-  function handleFavorited() {
-    setFavorited(!favorited);
-  }
 
   return (
     <FavoriteButton

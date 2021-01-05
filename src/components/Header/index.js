@@ -13,10 +13,12 @@ const Header = ({ toggleTheme }) => {
 
   return (
     <Container>
-      <LogoContainer>
-        <img width="250" src={logo} />
-        Music
-      </LogoContainer>
+      <Link to="/">
+        <LogoContainer>
+          <img width="250" src={logo} />
+          Music
+        </LogoContainer>
+      </Link>
 
       <Link to="favorit">
         <p>Favoritas</p>
