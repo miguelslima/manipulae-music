@@ -1,18 +1,46 @@
-import React from "react";
-import Slider from "react-slick";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
+import convertDurationInMinute from "../../utils/convertDurationInMinute";
+
+import { SiDeezer } from "react-icons/si";
+
+import {
+  Container,
+  ContainerTracks,
+  TrackArtistName,
+  TrackTitle,
+} from "./styles";
+import PlayMusicPreview from "../../components/PlayMusicPreview";
+import FavoritedButton from "../../components/FavoritedButton";
 
 export default function ListFavorit() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  const state = useSelector((state) => state);
+
+  const [tracksFavorites, setTracksFavorites] = useState(state.album);
+
+  const { album } = useSelector((state) => state);
+
+  console.log(tracksFavorites);
 
   return (
-    <div>
+    <Container>
       <h1>Listagem musicas favoritas</h1>
-    </div>
+
+      {tracksFavorites.data?.map((track) => (
+        <ContainerTracks key={track.id}>
+          <img src={track.album.album.cover_small} />
+          <TrackTitle>{track.album.title}</TrackTitle>
+          <TrackArtistName>{track.album.artist.name}</TrackArtistName>
+          <p>{convertDurationInMinute(track.album.duration)}</p>
+          <PlayMusicPreview musicPreview={track.album.preview} />
+          <a href={track.album.link} target="_blank">
+            <SiDeezer size={20} fill="#95d7d3" />
+          </a>
+
+          <FavoritedButton favoriteTrack={track} />
+        </ContainerTracks>
+      ))}
+    </Container>
   );
 }

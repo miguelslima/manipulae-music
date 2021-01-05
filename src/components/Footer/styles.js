@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  position: fixed;
+  bottom: 0;
+  z-index: 10000;
+
   height: 60px;
   width: 100%;
   background: ${(props) => props.theme.colors.primary};

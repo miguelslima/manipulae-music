@@ -6,6 +6,7 @@ import { shade } from "polished";
 import { Container, LogoContainer } from "./styles";
 
 import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Header = ({ toggleTheme }) => {
   const { colors, title } = useContext(ThemeContext);
@@ -16,6 +17,11 @@ const Header = ({ toggleTheme }) => {
         <img width="250" src={logo} />
         Music
       </LogoContainer>
+
+      <Link to="favorit">
+        <p>Favoritas</p>
+      </Link>
+
       <Switch
         onChange={toggleTheme}
         checked={title === "dark"}
