@@ -31,7 +31,7 @@ export default function Search() {
         <Button type="submit">Pesquisar</Button>
       </SearchContainer>
 
-      {track.map((item) => (
+      {track?.map((item) => (
         <Tracks tracks={item} />
       ))}
     </Container>
