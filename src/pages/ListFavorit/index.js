@@ -10,6 +10,7 @@ import {
   ContainerTracks,
   TrackArtistName,
   TrackTitle,
+  Title,
 } from "./styles";
 import PlayMusicPreview from "../../components/PlayMusicPreview";
 import FavoritedButton from "../../components/FavoritedButton";
@@ -19,13 +20,11 @@ export default function ListFavorit() {
 
   const [tracksFavorites, setTracksFavorites] = useState(state.album);
 
-  const { album } = useSelector((state) => state);
-
-  console.log(tracksFavorites);
+  // console.log(tracksFavorites);
 
   return (
     <Container>
-      <h1>Listagem musicas favoritas</h1>
+      <Title>Listagem musicas favoritas</Title>
 
       {tracksFavorites.data?.map((track) => (
         <ContainerTracks key={track.id}>

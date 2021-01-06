@@ -1,64 +1,20 @@
-import React, { useEffect, useState, useCallback } from "react";
-import api from "../../services/api";
+import React, { useEffect, useState } from "react";
 import fetchJsonp from "fetch-jsonp";
-import convertDurationInMinute from "../../utils/convertDurationInMinute";
 
-import { SiDeezer } from "react-icons/si";
 import Slider from "react-slick";
 
-import {
-  Container,
-  Title,
-  ContainerTracks,
-  TrackArtistName,
-  TrackTitle,
-  ContainerAlbum,
-  ContainerArtist,
-} from "./styles";
-import PlayMusicPreview from "../PlayMusicPreview";
+import { Container, Title } from "./styles";
 import { useSelector } from "react-redux";
-import FavoritedButton from "../FavoritedButton";
 
 import Tracks from "../Tracks";
+import Albums from "../Albums";
+import Artist from "../Artists";
 
 export default function MusicCard() {
   const [tracksTops, setTracksTops] = useState([]);
   const [albumsTops, setAlbumsTops] = useState([]);
   const [artistsTops, setArtistsTop] = useState([]);
-  const [favorited, setFavorited] = useState(true);
   const [index, setIndex] = useState(0);
-
-  function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          background: "#aaa",
-          borderRadius: 200,
-        }}
-        onClick={onClick}
-      />
-    );
-  }
-
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "block",
-          background: "#aaa",
-          borderRadius: 20,
-        }}
-        onClick={onClick}
-      />
-    );
-  }
 
   const settings = {
     className: "slider variable-width",
@@ -100,30 +56,19 @@ export default function MusicCard() {
 
       <Title>Albums</Title>
 
-      <div style={{ marginLeft: 20, marginRight: 20 }}>
-        <Slider {...settings}>
-          {albumsTops.data?.map((album) => (
-            <ContainerAlbum>
-              <img src={album.cover_medium} />
-              <h3>{album.title}</h3>
-              <p>{album.artist.name}</p>
-            </ContainerAlbum>
-          ))}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {albumsTops.data?.map((album) => (
+          <Albums albums={album} />
+        ))}
+      </Slider>
 
       <Title style={{ marginTop: 30 }}>Artists</Title>
 
-      <div style={{ marginLeft: 20, marginRight: 20 }}>
-        <Slider {...settings}>
-          {artistsTops.data?.map((artist) => (
-            <ContainerArtist>
-              <img src={artist.picture_medium} />
-              <p>{artist.name}</p>
-            </ContainerArtist>
-          ))}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {artistsTops.data?.map((artist) => (
+          <Artist artists={artist} />
+        ))}
+      </Slider>
     </Container>
   );
 }

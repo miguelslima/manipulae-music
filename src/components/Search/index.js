@@ -1,8 +1,17 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Slider from "react-slick";
 import { searchResultRequest } from "../../store/modules/search/actions";
+import Albums from "../Albums";
 import Tracks from "../Tracks";
-import { Container, SearchContainer, Input, Button } from "./styles";
+import {
+  Container,
+  SearchContainer,
+  Input,
+  Button,
+  TitleSearch,
+  ContainerSearchTrack,
+} from "./styles";
 
 export default function Search() {
   const dispatch = useDispatch();
@@ -15,11 +24,19 @@ export default function Search() {
     }
   }
 
-  const { album, track } = useSelector((state) => state.search.data);
+  const settings = {
+    className: "slider variable-width",
+    focusOnSelect: true,
+    dots: false,
+    infinite: false,
+    centerMode: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+  };
 
-  // console.log("Artista " + state.search.data?.searchResults);
-  // console.log("Album " + state.search.data?.searchResults);
-  // console.log("Tracks " + state.search.data?.searchResults);
+  const { album, track } = useSelector((state) => state.search.data);
+  const { findSearch } = useSelector((state) => state.search);
 
   return (
     <Container>
@@ -31,9 +48,22 @@ export default function Search() {
         <Button type="submit">Pesquisar</Button>
       </SearchContainer>
 
-      {track?.map((item) => (
-        <Tracks tracks={item} />
-      ))}
+      {findSearch && (
+        <TitleSearch>Resultado da pesquisa para: {word}</TitleSearch>
+      )}
+
+      <ContainerSearchTrack>
+        {track?.map((item) => (
+          <Tracks tracks={item} />
+        ))}
+      </ContainerSearchTrack>
+
+      {/* <Slider {...settings}>
+          {album?.map((album) => (
+            <Albums albums={album} />
+          ))}
+        </Slider>
+       */}
     </Container>
   );
 }

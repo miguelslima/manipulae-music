@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { favoriteTrackApiRequest } from "../../store/modules/album/actions";
 
 import { FavoriteButton } from "./styles";

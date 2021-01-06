@@ -21,6 +21,7 @@ const album = (state = INITIAL_STATE, action) => {
         } else {
           draft.data.push({
             album,
+            favorite: true,
           });
         }
 

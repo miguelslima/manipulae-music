@@ -12,7 +12,6 @@ export const Container = styled.div`
 
   @media screen and (max-width: 480px) {
     margin-top: 140px;
-    
   }
 `;
 
@@ -63,4 +62,32 @@ export const Button = styled.button`
     width: 300px;
     margin-left: 0px;
   }
+`;
+
+export const TitleSearch = styled.h3`
+  margin-top: 30px;
+`;
+
+export const ContainerAlbum = styled.div`
+  margin: 0px 10px;
+
+  img {
+    border-radius: 15px;
+  }
+
+  h3 {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  p {
+    color: #aaa;
+  }
+`;
+
+export const ContainerSearchTrack = styled.div`
+  width: 100%;
+  margin-top: 30px;
 `;
