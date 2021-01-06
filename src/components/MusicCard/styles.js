@@ -23,6 +23,13 @@ export const ContainerTracks = styled.div`
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
+
+  @media screen and (max-width: 480px) {
+   img {
+     width: 15%;
+     height: 15%;
+   }
+  }
 `;
 
 export const TrackArtistName = styled.p`
@@ -31,13 +38,22 @@ export const TrackArtistName = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
+
 export const TrackTitle = styled.p`
   text-align: start;
   width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -66,6 +82,7 @@ export const ContainerAlbum = styled.div`
 
 export const ContainerArtist = styled.div`
   margin: 0px 10px;
+  margin-bottom: 40px;
 
   img {
     border-radius: 600px;

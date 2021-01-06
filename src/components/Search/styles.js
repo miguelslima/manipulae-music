@@ -9,6 +9,11 @@ export const Container = styled.div`
   align-items: center;
 
   margin-top: 90px;
+
+  @media screen and (max-width: 480px) {
+    margin-top: 140px;
+    
+  }
 `;
 
 export const SearchContainer = styled.form`
@@ -17,6 +22,10 @@ export const SearchContainer = styled.form`
   margin-top: 20px;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+  }
 `;
 
 export const Input = styled.input`
@@ -29,6 +38,12 @@ export const Input = styled.input`
 
   border-radius: 10px;
   font-size: 20px;
+
+  @media screen and (max-width: 480px) {
+    width: 300px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
 `;
 
 export const Button = styled.button`
@@ -43,4 +58,9 @@ export const Button = styled.button`
   border-radius: 10px;
 
   cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    width: 300px;
+    margin-left: 0px;
+  }
 `;

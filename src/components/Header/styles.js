@@ -15,11 +15,17 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   padding: 0 30px;
+  padding-bottom: 10px;
 
   justify-content: space-between;
 
   a {
     text-decoration: none;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: auto;
+    flex-direction: column;
   }
 `;
 

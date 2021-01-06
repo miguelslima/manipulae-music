@@ -19,6 +19,8 @@ import PlayMusicPreview from "../PlayMusicPreview";
 import { useSelector } from "react-redux";
 import FavoritedButton from "../FavoritedButton";
 
+import Tracks from "../Tracks";
+
 export default function MusicCard() {
   const [tracksTops, setTracksTops] = useState([]);
   const [albumsTops, setAlbumsTops] = useState([]);
@@ -84,29 +86,16 @@ export default function MusicCard() {
     return;
   }, []);
 
-  
   const state = useSelector((state) => state);
 
-  console.log(state)
-
+  console.log(state);
 
   return (
     <Container>
       <Title>Tracks</Title>
 
       {tracksTops.data?.map((track) => (
-        <ContainerTracks key={track.id}>
-          <img src={track.album.cover_small} />
-          <TrackTitle>{track.title}</TrackTitle>
-          <TrackArtistName>{track.artist.name}</TrackArtistName>
-          <p>{convertDurationInMinute(track.duration)}</p>
-          <PlayMusicPreview musicPreview={track.preview} />
-          <a href={track.link} target="_blank">
-            <SiDeezer size={20} fill="#95d7d3" />
-          </a>
-
-          <FavoritedButton favoriteTrack={track} />
-        </ContainerTracks>
+        <Tracks tracks={track} />
       ))}
 
       <Title>Albums</Title>

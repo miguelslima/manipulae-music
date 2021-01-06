@@ -2,6 +2,7 @@ import produce from "immer";
 
 const INITIAL_STATE = {
   data: [],
+  loading: false,
 };
 
 const search = (state = INITIAL_STATE, action) => {
@@ -9,9 +10,9 @@ const search = (state = INITIAL_STATE, action) => {
     switch (action.type) {
       case "SEARCH_TO_API_SUCCESS": {
         const { searchResults } = action.payload;
-
+        
         draft.data = searchResults;
-
+        
         break;
       }
 
