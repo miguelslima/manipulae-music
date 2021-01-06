@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+<h3 align="center">
+    <img alt="Logo" title="#logo" width="400px" src="https://https://www.manipulae.com.br/images/logo.png">
+    <br><br>
+    <br>
+</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/miguelslima/manipulae-music?color=%2304D361">
 
-## Available Scripts
+  <a href="https://www.linkedin.com/in/miguelslima/">
+    <img alt="Made by Miguel Lima" src="https://img.shields.io/badge/made%20by-miguelslima-%2304D361">
+  </a>
 
-In the project directory, you can run:
+  <a href="https://github.com/miguelslima/manipulae-music/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/miguelslima/manipulae-music">
+  </a>
 
-### `yarn start`
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Índice
 
-### `yarn test`
+- [Sobre](#sobre)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Usar](#como-usar)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a id="sobre"></a>
 
-### `yarn build`
+## :bookmark: Sobre
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O <strong>Manipulae Music</strong> é uma aplicação que foi desenvolvida para o teste na empresa Manipulae.<br><br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A idéia do teste foi desenvolver uma aplicação WEB onde será consumida a [API da Deezer](https://developers.deezer.com/).
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Quando consumido os dados da API da Deezer, a idéia inicial é mostrar todos as músicas que estão no TOP da parada de sucesso na Deezer. Aproveitando a implementação, adicionei a lista de albuns e artistas que estão no topo.
 
-### `yarn eject`
+Outro ponto solicitado, é fazer uma pesquisa na API da Deezer e mostrar os resultados. Podem ser feitas pesquisas por artista, músicas ou albuns. No momentos a aplicação está mostrando apenas o resultado das músicas encontradas na Deezer.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Outro ponto, favoritar as músicas e exibir em uma lista as músicas favoritas pelo usuário.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<a id="tecnologias-utilizadas"></a>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## :rocket: Tecnologias Utilizadas
 
-## Learn More
+O projeto foi desenvolvido utilizando as seguintes tecnologias
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [React JS](https://pt-br.reactjs.org/) <br>
+  Foram utilizado aqui:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - antd
+  - axios
+  - fetch-jsonp
+  - immer
+  - polished
+  - react
+  - react-dom
+  - react-icons
+  - react-redux
+  - react-router-dom
+  - react-scripts
+  - react-slick
+  - react-switch
+  - redux
+  - redux-persist
+  - redux-saga
+  - styled-components
 
-### Code Splitting
+<a id="como-usar"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## :fire: Como usar
 
-### Analyzing the Bundle Size
+- ### **Pré-requisitos**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  - É **necessário** possuir o **[Node.js](https://nodejs.org/en/)** instalado na máquina
+  - Também, é **preciso** ter um gerenciador de pacotes seja o **[NPM](https://www.npmjs.com/)** ou **[Yarn](https://yarnpkg.com/)**.
 
-### Making a Progressive Web App
+1. Faça um clone :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```sh
+  $ git clone https://github.com/miguelslima/manipulae-music
+```
 
-### Advanced Configuration
+2. Executando a Aplicação:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```sh
+  # Instale as dependências
+  $ npm install ou yarn
 
-### Deployment
+  # Inicie a aplicação React JS
+  $ cd manipulae-music
+  $ npm start ou yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## :memo: License
 
-### `yarn build` fails to minify
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h4 align="center">
+    Feito com 💜 by <a href="https://www.linkedin.com/in/miguelslima1986/" target="_blank">Miguel Lima</a>
+</h4>

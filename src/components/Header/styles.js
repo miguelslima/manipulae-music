@@ -36,3 +36,12 @@ export const LogoContainer = styled.div`
 
   color: #95d7d3;
 `;
+
+export const FavoritTitle = styled.div`
+  width: 30%;
+
+  p {
+    text-align: center;
+    font-size: 18px;
+  }
+`;

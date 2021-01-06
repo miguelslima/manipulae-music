@@ -3,7 +3,7 @@ import Switch from "react-switch";
 import { ThemeContext } from "styled-components";
 import { shade } from "polished";
 
-import { Container, LogoContainer } from "./styles";
+import { Container, LogoContainer, FavoritTitle } from "./styles";
 
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -20,9 +20,11 @@ const Header = ({ toggleTheme }) => {
         </LogoContainer>
       </Link>
 
-      <Link to="favorit">
-        <p>Favoritas</p>
-      </Link>
+      <FavoritTitle>
+        <Link to="favorit">
+          <p>Vejas suas músicas favoritas</p>
+        </Link>
+      </FavoritTitle>
 
       <Switch
         onChange={toggleTheme}
