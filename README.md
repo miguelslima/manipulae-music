@@ -1,5 +1,5 @@
 <h3 align="center">
-    <img alt="Logo" title="#logo" width="400px" src="https://https://www.manipulae.com.br/images/logo.png">
+    <img alt="Logo" title="#logo" width="400px" src="https://www.manipulae.com.br/images/logo.png">
     <br><br>
     <br>
 </h3>
