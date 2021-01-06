@@ -34,11 +34,11 @@ O <strong>Manipulae Music</strong> é uma aplicação que foi desenvolvida para 
 A idéia do teste foi desenvolver uma aplicação WEB onde será consumida a [API da Deezer](https://developers.deezer.com/).
 <br>
 
-Quando consumido os dados da API da Deezer, a idéia inicial é mostrar todos as músicas que estão no TOP da parada de sucesso na Deezer. Aproveitando a implementação, adicionei a lista de albuns e artistas que estão no topo.
+Quando consumido os dados da API da Deezer, a idéia inicial é mostrar todos as músicas que estão no TOP da parada de sucesso na Deezer. Aproveitando a implementação, adicionei a lista de albuns e artistas que estão no topo.<br>
 
 Outro ponto solicitado, é fazer uma pesquisa na API da Deezer e mostrar os resultados. Podem ser feitas pesquisas por artista, músicas ou albuns. No momentos a aplicação está mostrando apenas o resultado das músicas encontradas na Deezer.
-
-Outro ponto, favoritar as músicas e exibir em uma lista as músicas favoritas pelo usuário.
+<br>
+Outro ponto, favoritar as músicas e exibir em uma lista as músicas favoritas pelo usuário.<br>
 
 <br>
 
