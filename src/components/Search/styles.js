@@ -24,7 +24,7 @@ export const SearchContainer = styled.form`
 
   @media screen and (max-width: 480px) {
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 50px;
   }
 `;
 
