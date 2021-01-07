@@ -45,3 +45,17 @@ export const FavoritTitle = styled.div`
     font-size: 18px;
   }
 `;
+
+export const ResponsiveMedia = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+`;

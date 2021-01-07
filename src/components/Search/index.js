@@ -8,6 +8,7 @@ import {
   SearchContainer,
   Input,
   Button,
+  BackButton,
   TitleSearch,
   ContainerSearchTrack,
 } from "./styles";
@@ -17,6 +18,12 @@ import { FaArrowLeft } from "react-icons/fa";
 export default function Search() {
   const dispatch = useDispatch();
   const [word, setWord] = useState();
+  const { findSearch } = useSelector((state) => state.search);
+  const [searchResults, setSearchResults] = useState(findSearch);
+
+  useEffect(() => {
+    setSearchResults(findSearch);
+  }, [findSearch]);
 
   function handleSearchApi(e) {
     e.preventDefault();
@@ -37,26 +44,17 @@ export default function Search() {
   };
 
   const { album, track } = useSelector((state) => state.search.data);
-  const { findSearch } = useSelector((state) => state.search);
 
   return (
     <Container>
-      {findSearch ? (
+      {searchResults ? (
         <>
-          <div
-            style={{
-              marginTop: 20,
-              fontSize: 20,
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            <button onClick={() => {}}>
+          <BackButton>
+            <button onClick={() => setSearchResults(false)}>
               <FaArrowLeft />
-              Voltar
+              <span>Voltar</span>
             </button>
-          </div>
+          </BackButton>
           <TitleSearch>Resultado da pesquisa para: {word}</TitleSearch>
         </>
       ) : (

@@ -20,9 +20,10 @@ const search = (state = INITIAL_STATE, action) => {
 
       case "SEARCH_TO_API_FAILURE": {
         draft.findSearch = false;
-        console.log("falha na busca");
+
         break;
       }
+
       default: {
         return draft;
       }

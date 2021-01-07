@@ -28,6 +28,20 @@ export const SearchContainer = styled.form`
   }
 `;
 
+export const BackButton = styled.div`
+  margin-top: 20;
+  font-size: 20;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+`;
+
 export const Input = styled.input`
   width: 400px;
   height: 30px;
