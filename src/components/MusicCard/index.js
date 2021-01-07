@@ -44,8 +44,6 @@ export default function MusicCard() {
 
   const state = useSelector((state) => state);
 
-  console.log(state);
-
   return (
     <Container>
       <Title>Tracks</Title>

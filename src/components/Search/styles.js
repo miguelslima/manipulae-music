@@ -29,8 +29,8 @@ export const SearchContainer = styled.form`
 `;
 
 export const BackButton = styled.div`
-  margin-top: 20;
-  font-size: 20;
+  margin-top: 20px;
+  font-size: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -24,3 +24,12 @@ export function searchResultFailure(error) {
     },
   };
 }
+
+export function resetSearch(reset) {
+  return {
+    type: "RESET_SEARCH",
+    payload: {
+      reset,
+    },
+  };
+}

@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { searchResultRequest } from "../../store/modules/search/actions";
+import {
+  searchResultRequest,
+  resetSearch,
+} from "../../store/modules/search/actions";
 import Tracks from "../Tracks";
 import {
   Container,
@@ -32,6 +35,10 @@ export default function Search() {
     }
   }
 
+  function handleButton() {
+    dispatch(resetSearch(false));
+  }
+
   const settings = {
     className: "slider variable-width",
     focusOnSelect: true,
@@ -47,10 +54,10 @@ export default function Search() {
 
   return (
     <Container>
-      {searchResults ? (
+      {findSearch ? (
         <>
           <BackButton>
-            <button onClick={() => setSearchResults(false)}>
+            <button onClick={() => handleButton()}>
               <FaArrowLeft />
               <span>Voltar</span>
             </button>

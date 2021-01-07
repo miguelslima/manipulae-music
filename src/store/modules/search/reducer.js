@@ -24,6 +24,12 @@ const search = (state = INITIAL_STATE, action) => {
         break;
       }
 
+      case "RESET_SEARCH": {
+        draft.findSearch = false;
+
+        break;
+      }
+
       default: {
         return draft;
       }
